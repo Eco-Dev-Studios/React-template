@@ -1,30 +1,21 @@
-import "./App.css";
+import "./styles/App.css";
 import Header from "./components/Header";
-import { useAppSelector } from "../src/app/hooks"
-
+import { useAppSelector } from "../src/app/hooks";
 
 function App() {
-
-  const isDarkMode = useAppSelector(state => state.darkMode.isDarkMode);
-
+  const isDarkMode = useAppSelector((state) => state.darkMode.isDarkMode);
 
   return (
-    <div style={{
-      backgroundColor: isDarkMode ? '#181818' : '#fff',
-      color: isDarkMode ? '#fff' : '#181818',
-      width: '100vw',
-      height: '100vh',
-    }}>
+    <div className="h-screen w-screen">
       <Header />
       <div>
-        <h1 className="text-9xl pt-80 mb-20 text-center">
+        <h1 className="text-center mb-20 pt-80 text-9xl">
           Welcome to Eco Studios
         </h1>
-        <p className="text-5xl text-center">
+        <p className="text-center text-5xl">
           Next generation of Software Development
         </p>
       </div>
-
     </div>
   );
 }
