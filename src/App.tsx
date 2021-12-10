@@ -1,9 +1,19 @@
 import "./styles/App.css";
 import Header from "./components/Header";
-import { useAppSelector } from "../src/app/hooks";
+import { useEffect } from "react";
+import { useAppDispatch } from "./app/hooks";
+import { toggleDarkMode } from "./features/darkMode/dark-mode-slice";
 
 function App() {
-  const isDarkMode = useAppSelector((state) => state.darkMode.isDarkMode);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    console.log();
+    const isDarkFromUser = localStorage.getItem("theme");
+    if (isDarkFromUser) {
+      dispatch(toggleDarkMode());
+    }
+  }, []);
 
   return (
     <div className="h-screen w-screen">

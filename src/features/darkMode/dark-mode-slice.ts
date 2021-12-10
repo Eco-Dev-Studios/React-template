@@ -19,9 +19,11 @@ const darkModeSlice = createSlice({
     toggleDarkMode: (state) => {
       state.isDarkMode = !state.isDarkMode;
       if (state.isDarkMode) {
+        localStorage.theme = "dark";
         document.documentElement.classList.add("dark");
         return;
       }
+      localStorage.removeItem("theme");
       document.documentElement.classList.remove("dark");
     },
   },
